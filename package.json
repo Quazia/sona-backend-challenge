@@ -1,13 +1,12 @@
 {
-  "name": "prime-nestjs",
+  "name": "sona-backend-challenge",
   "version": "1.0.0",
-  "description": "The ultimate collection of production-ready and flexible NestJS Boilerplate.",
+  "description": "Nest.js Solution repo to the Sona Stream backend challenge.",
   "author": {
-    "name": "Joey Goksu",
-    "email": "me@joeygoksu.com",
-    "url": "https://joeygoksu.com"
+    "name": "Arthur Lunn",
+    "email": "alf40k@gmail.com"
   },
-  "private": false,
+  "private": true,
   "license": "MIT",
   "scripts": {
     "prebuild": "rimraf dist",
