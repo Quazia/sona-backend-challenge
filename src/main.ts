@@ -10,8 +10,8 @@ async function bootstrap() {
   app.setGlobalPrefix('api');
 
   const config = new DocumentBuilder()
-    .setTitle('prime nestjs')
-    .setDescription('Boilerplate for nestjs')
+    .setTitle('sona slugger')
+    .setDescription('Basic server to create shortened URLs and handle redirects')
     .setVersion('1.0')
     .addTag('api')
     .build();
