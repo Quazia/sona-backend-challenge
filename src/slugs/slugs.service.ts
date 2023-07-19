@@ -1,5 +1,4 @@
 import { Injectable } from '@nestjs/common';
-import { ISlug } from './slug.interface';
 import { Slug } from './slug.model';
 @Injectable()
 export class SlugsService {
@@ -14,9 +13,9 @@ export class SlugsService {
     return slugId;
   }
 
-  read(slug: string): ISlug {
+  read(slug: string): Slug {
     // Placeholder for actual lookup
-    return null;
+    return this.slugs[slug];
   }
 
 }

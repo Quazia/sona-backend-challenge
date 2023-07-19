@@ -1,5 +1,5 @@
 import { SlugsService } from './slugs.service';
-
+import { Slug } from './slug.model';
 describe('SlugsService', () => {
   let service: SlugsService;
 
@@ -18,11 +18,13 @@ describe('SlugsService', () => {
     it('should read a slug', () => {
       const slugId = service.create('https://www.google.com');
       const slug = service.read(slugId);
-      expect(slug).toEqual({
-        slugId,
-        url: 'https://www.google.com',
-        visitCount: 0,
-      });
+      expect(slug).toMatchObject(
+        new Slug({
+          slugId,
+          url: 'https://www.google.com',
+          visitCount: 0,
+        }),
+      );
     });
   });
 });
