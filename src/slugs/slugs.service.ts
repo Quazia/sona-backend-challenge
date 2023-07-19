@@ -8,7 +8,7 @@ export class SlugsService {
     // Generate slug
     // Push slug+URL to db
     const slugId = 'eg041x';
-    const newSlug = new Slug({ slugId, url, visitCount: 0 });
+    const newSlug = new Slug(slugId, url, 0);
     this.slugs[slugId] = newSlug;
     return slugId;
   }
@@ -17,7 +17,6 @@ export class SlugsService {
     // Placeholder for actual lookup
     return this.slugs[slug];
   }
-
 }
 
 // Path: src\slugs\slug.service.ts

@@ -18,13 +18,7 @@ describe('SlugsService', () => {
     it('should read a slug', () => {
       const slugId = service.create('https://www.google.com');
       const slug = service.read(slugId);
-      expect(slug).toMatchObject(
-        new Slug({
-          slugId,
-          url: 'https://www.google.com',
-          visitCount: 0,
-        }),
-      );
+      expect(slug).toMatchObject(new Slug(slugId, 'https://www.google.com', 0));
     });
   });
 });
