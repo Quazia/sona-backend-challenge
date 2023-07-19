@@ -19,7 +19,7 @@ export class SlugsService {
   }
 
   getRedirect(slug: string): string {
-    return null;
+    return this.slugs[slug].url;
   }
 }
 
