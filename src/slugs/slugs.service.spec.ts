@@ -13,6 +13,18 @@ describe('SlugsService', () => {
       expect(slugId).toMatch(/^[a-zA-Z0-9]{6}$/);
     });
   });
+
+  describe('read', () => {
+    it('should read a slug', () => {
+      const slugId = service.create('https://www.google.com');
+      const slug = service.read(slugId);
+      expect(slug).toEqual({
+        slugId,
+        url: 'https://www.google.com',
+        visitCount: 0,
+      });
+    });
+  });
 });
 
 // Path: src\slugs\slugs.service.ts
