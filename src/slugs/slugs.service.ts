@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { Slug } from './slug.model';
 @Injectable()
 export class SlugsService {
+  // Temporary in-memory database
   slugs: { [slugId: string]: Slug } = {};
 
   create(url: string) {
@@ -14,8 +15,11 @@ export class SlugsService {
   }
 
   read(slug: string): Slug {
-    // Placeholder for actual lookup
     return this.slugs[slug];
+  }
+
+  getRedirect(slug: string): string {
+    return null;
   }
 }
 

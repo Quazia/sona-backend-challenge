@@ -21,6 +21,14 @@ describe('SlugsService', () => {
       expect(slug).toMatchObject(new Slug(slugId, 'https://www.google.com', 0));
     });
   });
+
+  describe('getRedirect', () => {
+    it('should get a redirect', () => {
+      const slugId = service.create('https://www.google.com');
+      const redirect = service.getRedirect(slugId);
+      expect(redirect).toBe('https://www.google.com');
+    });
+  });
 });
 
 // Path: src\slugs\slugs.service.ts
