@@ -7,6 +7,6 @@ export class SlugsController {
   constructor(private readonly slugsService: SlugsService) {}
   @Post()
   async create(@Body() url: string) {
-    return null;
+    return this.slugsService.create(url);
   }
 }
