@@ -13,14 +13,15 @@ export class SlugsService {
     return this.slugsRepository.save({ url });
   }
 
-  read(slug: string): Slug {
+  read(slugId: string): Promise<Slug> {
     // return this.slugs[slug];
-    return null;
+    return this.slugsRepository.findOne({ id: slugId });
   }
 
-  getRedirect(slug: string): string {
-    // return this.slugs[slug].url;
-    return null;
+  async getRedirect(slugId: string): Promise<string> {
+    const slugEntity = await this.slugsRepository.findOne({ id: slugId });
+
+    return slugEntity.url;
   }
 }
 
