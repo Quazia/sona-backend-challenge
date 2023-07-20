@@ -1,12 +1,13 @@
 import { Controller, Post, Put, Body, Param } from '@nestjs/common';
 
 import { SlugsService } from './slugs.service';
+import { CreateSlugDto } from './dto/create-slug.dto';
 
 @Controller('slugs')
 export class SlugsController {
   constructor(private readonly slugsService: SlugsService) {}
   @Post()
-  async create(@Body() url: string) {
-    return this.slugsService.create(url);
+  async create(@Body() createSlugDto: CreateSlugDto) {
+    return this.slugsService.create(createSlugDto.url);
   }
 }

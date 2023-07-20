@@ -21,7 +21,7 @@ describe('RedirectController', () => {
       const result = 'slug';
       const url = 'https://www.google.com';
       jest.spyOn(slugsService, 'create').mockImplementation(() => result);
-      slugsController.create(url);
+      slugsController.create({ url });
       expect(slugsService.create).toBeCalledWith(url);
     });
   });
