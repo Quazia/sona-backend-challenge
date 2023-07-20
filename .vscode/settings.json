@@ -1,4 +1,5 @@
 {
     "editor.formatOnSave": true,
     "files.eol": "\n",
+    "jest.rootPath": "src"
 }
