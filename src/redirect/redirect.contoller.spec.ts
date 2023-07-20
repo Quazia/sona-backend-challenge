@@ -22,7 +22,7 @@ describe('RedirectController', () => {
   describe('getRedirect', () => {
     it('should get a redirect', async () => {
       const slugId = 'eg041x';
-      jest.spyOn(slugsService, 'getRedirect').mockImplementation(() => 'https://www.google.com');
+      jest.spyOn(slugsService, 'getRedirect').mockImplementation(() => Promise.resolve('https://www.google.com'));
       const redirect = await redirectController.redirect(slugId);
       expect(redirect).toMatchObject({ url: 'https://www.google.com' });
     });

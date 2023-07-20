@@ -34,7 +34,7 @@ describe('SlugsService', () => {
   describe('getRedirect', () => {
     it('should get a redirect', async () => {
       const slug = await service.create('https://www.google.com');
-      const redirect = service.getRedirect(slug.id);
+      const redirect = await service.getRedirect(slug.id);
       expect(redirect).toBe('https://www.google.com');
     });
   });

@@ -24,7 +24,7 @@ export const SlugsRepositoryMock = {
   provide: getRepositoryToken(Slug),
   useValue: {
     find: jest.fn().mockResolvedValue(slugArray),
-    findOneBy: jest.fn().mockResolvedValue(oneSlug),
+    findOne: jest.fn().mockResolvedValue(oneSlug),
     save: jest.fn().mockResolvedValue(oneSlug),
     remove: jest.fn(),
     delete: jest.fn(),
