@@ -18,9 +18,9 @@ describe('SlugsService', () => {
   });
 
   describe('create', () => {
-    it('should create a new slug', () => {
-      const slugId = service.create('https://www.google.com');
-      expect(slugId).toMatch(/^[a-zA-Z0-9]{6}$/);
+    it('should create a new slug', async () => {
+      const slug = await service.create('https://www.google.com');
+      expect(slug.id).toMatch(/^[a-zA-Z0-9]{6}$/);
     });
   });
 
