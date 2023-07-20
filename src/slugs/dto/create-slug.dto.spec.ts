@@ -11,4 +11,13 @@ describe('CreateSlugDto', () => {
     };
     await expect(target.transform({} as CreateSlugDto, metadata)).resolves.toMatchObject({ url: 'https://www.google.com' });
   });
+  it('Should throw error on invalid URL', async () => {
+    const target: ValidationPipe = new ValidationPipe();
+    const metadata: ArgumentMetadata = {
+      type: 'body',
+      metatype: CreateSlugDto,
+      data: 'INVALID_URL',
+    };
+    await expect(target.transform({} as CreateSlugDto, metadata)).rejects.toThrowError();
+  });
 });
