@@ -1,6 +1,8 @@
 import { SlugsService } from '../slugs/slugs.service';
 import { RedirectController } from './redirect.controller';
 import { Test } from '@nestjs/testing';
+import { SlugsRepositoryMock } from '../slugs/mocks/slug-repository.mock';
+
 
 describe('RedirectController', () => {
   let redirectController: RedirectController;
@@ -9,7 +11,8 @@ describe('RedirectController', () => {
   beforeEach(async () => {
     const moduleRef = await Test.createTestingModule({
       controllers: [RedirectController],
-      providers: [SlugsService],
+      providers: [SlugsService, SlugsRepositoryMock],
+
     }).compile();
 
     slugsService = moduleRef.get<SlugsService>(SlugsService);
