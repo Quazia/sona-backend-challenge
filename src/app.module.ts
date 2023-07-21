@@ -6,6 +6,8 @@ import { SlugsModule } from './slugs/slugs.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import configuration from './config';
+import { RedirectModule } from './redirect/redirect.module';
+import { StatsModule } from './stats/stats.module';
 
 @Module({
   imports: [
@@ -20,6 +22,8 @@ import configuration from './config';
     }),
     ScheduleModule.forRoot(),
     SlugsModule,
+    RedirectModule,
+    StatsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
