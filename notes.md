@@ -82,3 +82,5 @@ Read through, cache on write
 - When transforming the input data, I went with prepending https here but realistically this may cause some redirects to fail due to invalid/lack of certs
 - Right now I’m only listening on port 3000, the redirect module should be split into it’s own bootstrap file and served on port 80.
 - The docker image is way larger than it should be, I moved a lot of types into the man dependencies just to get around a type error. With more time I would have fixed it in a cleaner way instead of a workaround.
+- Ran into some real issues with my WSL instance, the docker should work but I'm not able to confirm that it does on my machine at this time. Given more time that would be my top priority.
+- Didn't have enough time to implement Redis, but the general approach is outlines here.
