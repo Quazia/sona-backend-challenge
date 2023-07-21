@@ -110,7 +110,7 @@ const oneSlug = {
   visitCount: 0,
 };
 
-const slugFindAndCount = async ({ skip, take }): Promise<[Slug[], number]> => {
+export const slugFindAndCount = async ({ skip, take }): Promise<[Slug[], number]> => {
   const offset = skip * take;
   const end = offset + take;
   return [slugArray.slice(offset, end), take];
