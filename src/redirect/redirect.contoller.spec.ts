@@ -2,7 +2,7 @@ import { SlugsService } from '../slugs/slugs.service';
 import { RedirectController } from './redirect.controller';
 import { Test } from '@nestjs/testing';
 import { SlugsRepositoryMock } from '../slugs/mocks/slug-repository.mock';
-
+import { ResponseObject } from '@nestjs/swagger/dist/interfaces/open-api-spec.interface';
 
 describe('RedirectController', () => {
   let redirectController: RedirectController;
@@ -12,7 +12,6 @@ describe('RedirectController', () => {
     const moduleRef = await Test.createTestingModule({
       controllers: [RedirectController],
       providers: [SlugsService, SlugsRepositoryMock],
-
     }).compile();
 
     slugsService = moduleRef.get<SlugsService>(SlugsService);
@@ -23,8 +22,9 @@ describe('RedirectController', () => {
     it('should get a redirect', async () => {
       const id = 'eg041x';
       jest.spyOn(slugsService, 'getRedirect').mockImplementation(() => Promise.resolve('https://www.google.com'));
-      const redirect = await redirectController.redirect(id);
-      expect(redirect).toMatchObject({ url: 'https://www.google.com' });
+      const res = { redirect: jest.fn() };
+      await redirectController.redirect(res, id);
+      expect(res.redirect).toHaveBeenCalledWith('https://www.google.com');
     });
   });
 });
