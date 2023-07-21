@@ -8,8 +8,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.use(helmet());
   app.enableCors();
-  app.setGlobalPrefix('api');
-
+  
   const config = new DocumentBuilder()
     .setTitle('sona slugger')
     .setDescription('Basic server to create shortened URLs and handle redirects')
