@@ -1,9 +1,9 @@
 ## 📖 Description
+
 This repository is designed to solve the sonastream backend takehome challenge.
 [Challenge](https://github.com/sonastream/takehomes/blob/main/backend/README.md)
 
 It uses the [prime nest.js template](https://github.com/josephgoksu/prime-nestjs) as a starting point, and focuses on clarity, and performance.
-
 
 ## Quick Setup (Production)
 
@@ -14,33 +14,40 @@ bash ./setup.sh
 ## Installation (Development)
 
 ```bash
-$ npm install
+$ yarn install
+```
+
+## Migrations
+
+```bash
+# development
+$ yarn run add:migration development
 ```
 
 ## Running the app
 
 ```bash
 # development
-$ npm run start
+$ yarn run start
 
 # watch mode
-$ npm run start:dev
+$ yarn run start:dev
 
 # production mode
-$ npm run start:prod
+$ yarn run start:prod
 ```
 
 ## Test
 
 ```bash
 # unit tests
-$ npm run test
+$ yarn run test
 
 # e2e tests
-$ npm run test:e2e
+$ yarn run test:e2e
 
 # test coverage
-$ npm run test:cov
+$ yarn run test:cov
 ```
 
 ## Endpoints
@@ -76,6 +83,3 @@ awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' public_key.pem
 ## 📝 License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for more information.
-
-
-
