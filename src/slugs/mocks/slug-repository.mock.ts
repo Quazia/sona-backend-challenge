@@ -110,11 +110,18 @@ const oneSlug = {
   visitCount: 0,
 };
 
+const slugFindAndCount = async ({ skip, take }): Promise<[Slug[], number]> => {
+  const offset = skip * take;
+  const end = offset + take;
+  return [slugArray.slice(offset, end), take];
+};
+
 export const SlugsRepositoryMock = {
   provide: getRepositoryToken(Slug),
   useValue: {
     find: jest.fn().mockResolvedValue(slugArray),
     findOne: jest.fn().mockResolvedValue(oneSlug),
+    findAndCount: jest.fn().mockImplementation(slugFindAndCount),
     save: jest.fn().mockResolvedValue(oneSlug),
     remove: jest.fn(),
     delete: jest.fn(),
