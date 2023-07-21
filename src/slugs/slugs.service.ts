@@ -12,6 +12,11 @@ export class SlugsService {
     // Generate slug
     // Push slug+URL to db
     // this.slugs[id] = newSlug;
+    const pattern = /^((http|https|ftp):\/\/)/;
+
+    if (!pattern.test(url)) {
+      url = 'https://' + url;
+    }
     return this.slugsRepository.save({ id: nanoid(6), url, visitCount: 0 });
   }
 
@@ -20,9 +25,8 @@ export class SlugsService {
     return this.slugsRepository.findOne({ id });
   }
 
-  async getRedirect(id: string): Promise<string> {
+  async getRedirect(id: string) {
     const slugEntity = await this.slugsRepository.findOne({ id });
-
     return slugEntity.url;
   }
 }
