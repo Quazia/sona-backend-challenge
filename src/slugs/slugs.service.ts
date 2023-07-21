@@ -20,6 +20,10 @@ export class SlugsService {
     return this.slugsRepository.save({ id: nanoid(6), url, visitCount: 0 });
   }
 
+  async update(id: string, url?: string): Promise<Slug> {
+    return this.slugsRepository.save({ id, visitCount: 0, url });
+  }
+
   read(id: string): Promise<Slug> {
     // return this.slugs[slug];
     return this.slugsRepository.findOne({ id });

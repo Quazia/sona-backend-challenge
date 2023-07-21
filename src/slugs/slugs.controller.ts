@@ -10,4 +10,9 @@ export class SlugsController {
   async create(@Body() createSlugDto: CreateSlugDto) {
     return this.slugsService.create(createSlugDto.url);
   }
+
+  @Put(':id')
+  async update(@Param('id') id: string) {
+    return this.slugsService.update(id);
+  }
 }
