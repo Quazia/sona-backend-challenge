@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Redirect } from '@nestjs/common';
+import { Controller, Get, Param, Res } from '@nestjs/common';
 import { SlugsService } from '../slugs/slugs.service';
 
 @Controller()
@@ -7,9 +7,8 @@ export class RedirectController {
   constructor(private readonly slugsService: SlugsService) {}
 
   @Get(':slug')
-  @Redirect(undefined, 301)
-  async redirect(@Param('slug') slug: string) {
+  async redirect(@Res() res, @Param('slug') slug: string) {
     const url = await this.slugsService.getRedirect(slug);
-    return { url };
+    return res.redirect(url);
   }
 }
