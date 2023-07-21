@@ -1,5 +1,5 @@
 export interface ISlug {
-  slugId: string;
+  id: string;
   url: string;
   visitCount: number;
 }

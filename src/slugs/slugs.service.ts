@@ -9,17 +9,17 @@ export class SlugsService {
   create(url: string): Promise<Slug> {
     // Generate slug
     // Push slug+URL to db
-    // this.slugs[slugId] = newSlug;
+    // this.slugs[id] = newSlug;
     return this.slugsRepository.save({ url });
   }
 
-  read(slugId: string): Promise<Slug> {
+  read(id: string): Promise<Slug> {
     // return this.slugs[slug];
-    return this.slugsRepository.findOne({ id: slugId });
+    return this.slugsRepository.findOne({ id });
   }
 
-  async getRedirect(slugId: string): Promise<string> {
-    const slugEntity = await this.slugsRepository.findOne({ id: slugId });
+  async getRedirect(id: string): Promise<string> {
+    const slugEntity = await this.slugsRepository.findOne({ id });
 
     return slugEntity.url;
   }
