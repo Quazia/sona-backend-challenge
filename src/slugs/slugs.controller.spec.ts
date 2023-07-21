@@ -2,7 +2,7 @@ import { SlugsService } from '../slugs/slugs.service';
 import { SlugsController } from './slugs.controller';
 import { Test } from '@nestjs/testing';
 import { SlugsRepositoryMock } from './mocks/slug-repository.mock';
-describe('RedirectController', () => {
+describe('SlugsController', () => {
   let slugsController: SlugsController;
   let slugsService: SlugsService;
 
